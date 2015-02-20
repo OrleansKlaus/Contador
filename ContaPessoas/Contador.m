@@ -9,10 +9,19 @@
 #import <Foundation/Foundation.h>
 #import "Contador.h"
 
-
 @implementation Contador {
     int boy;
     int girl;
+}
+
+static Contador *globalContador = nil;
+
++(Contador *)globalContador;
+{
+    if (!globalContador) {
+        globalContador = [[Contador alloc]init];
+    }
+    return globalContador;
 }
 
 -(id)init {
@@ -26,9 +35,11 @@
 
 - (void)maisUmCueca {
     boy = boy + 1;
+    [_mostrarValores AtualizarValores];
 }
 - (void)maisUmaGata {
     girl++;
+    [_mostrarValores AtualizarValores];
 }
 
 -(int)getBoys {
@@ -39,7 +50,9 @@
     return girl;
 }
 
-
+-(int)getTotal{
+    return boy + girl;
+}
 
 @end
 

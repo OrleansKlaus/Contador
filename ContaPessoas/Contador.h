@@ -6,13 +6,27 @@
 //  Copyright (c) 2015 Vinicius Miana. All rights reserved.
 //
 
-@interface Contador : NSObject 
+#import <UIKit/UIKit.h>
+
+@protocol AtualizarValores <NSObject>
+
+@required
+-(void)AtualizarValores;
+
+@end
+
+@interface Contador : NSObject
+
+@property(nonatomic,assign) id mostrarValores;
+
++(Contador *)globalContador;
 
 - (void)maisUmCueca;
 - (void)maisUmaGata;
 
 -(int)getBoys;
 -(int)getGirls;
+-(int)getTotal;
 
 @end
 

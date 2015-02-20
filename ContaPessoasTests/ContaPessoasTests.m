@@ -16,11 +16,11 @@
 
 @implementation ContaPessoasTests
 
-
 - (void)testContaMeninos {
-    Contador *c = [[Contador alloc] init];
-    [c maisUmCueca];
-    XCTAssert(([c getBoys] == 1), @"Pass");
+    Contador *c = [[Contador alloc] init];  // Cria um contatdor e aloca na memória
+    [c maisUmCueca]; // Cria um método
+    XCTAssert(([c getBoys] == 1), @"Pass"); //
+    XCTAssert(([c getGirls] == 0), @"Pass"); //
 }
 
 - (void)testContaMeninas {
@@ -30,5 +30,12 @@
     XCTAssert(([c getBoys] == 0), @"Pass");
 }
 
+- (void)testContaTotal {
+    Contador *c = [[Contador alloc] init];
+    [c maisUmaGata];
+    XCTAssert(([c getGirls] == 1), @"Pass");
+    XCTAssert(([c getBoys] == 1), @"Pass");
+    XCTAssert(([c getTotal] == 1), @"Pass");
+}
 
 @end
